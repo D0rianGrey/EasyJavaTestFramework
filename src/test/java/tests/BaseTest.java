@@ -25,7 +25,7 @@ public abstract class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        driver = DriverFactory.getDriver(Browser.CHROME);
+        driver = DriverFactory.getDriver(Browser.SAFARI);
         driver.get("https://www.google.com.ua");
         steps = new SearchSteps();
     }

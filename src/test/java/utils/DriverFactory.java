@@ -1,11 +1,13 @@
 package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
 
@@ -30,6 +32,7 @@ public class DriverFactory {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
+            case SAFARI -> driver = new SafariDriver();
         }
         return driver;
     }
