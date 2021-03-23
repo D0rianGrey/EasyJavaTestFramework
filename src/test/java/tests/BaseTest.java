@@ -6,11 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import steps.SearchSteps;
-import utils.Browser;
 import utils.DriverFactory;
-import utils.PropertyReader;
-
-import java.io.File;
 
 import static utils.PropertyReader.getBrowser;
 import static utils.PropertyReader.getUrl;
@@ -30,6 +26,7 @@ public abstract class BaseTest {
     @BeforeClass
     public void setUp() {
         driver = DriverFactory.getDriver(getBrowser());
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get(getUrl());
         steps = new SearchSteps();
     }
@@ -46,6 +43,6 @@ public abstract class BaseTest {
 
     @DataProvider(name = "dataProvider")
     public Object[][] dataProviderMethod() {
-        return new Object[][]{{"selenium java"}, {"selenium javascript"}};
+        return new Object[][]{{"selenium java"}/*, {"selenium javascript"}*/};
     }
 }
